@@ -1,0 +1,34 @@
+<div mat-dialog-content>
+  <h6 class="text-center text-primary">create a new Row</h6>
+  <form [formGroup]="login">
+   <mat-form-field>
+    <input matInput formControlName="Rank"  placeholder="Enter Rank No" required>
+    <mat-error *ngIf="login.controls.Rank.invalid">
+      this is invalid
+    </mat-error>
+    </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="name"  placeholder="Enter Name" minlength="4" required>
+    <mat-error *ngIf="login.controls.name.invalid">
+      this is invalid
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="percentage" placeholder="Enter percentage" required>
+    <mat-error *ngIf="login.controls.percentage.invalid">
+     this is invalid
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="branch" placeholder="Enter branch" required>
+    <mat-error *ngIf="login.controls.branch.invalid">
+      this is invalid
+    </mat-error>
+  </mat-form-field>
+</form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <!-- {{login.value | json}} -->
+  <button class="ml-5 text-right text-success"  [disabled]="!login.valid" mat-button [mat-dialog-close]="login.value" (click)="getdata($event)"  cdkFocusInitial>Create</button>
+</div>
